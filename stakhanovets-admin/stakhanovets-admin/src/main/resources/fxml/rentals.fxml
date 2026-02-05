@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.stakhanovets.admin.controller.RentalsController"
+      spacing="12" styleClass="card">
+    <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Заявки аренды" styleClass="h2"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Обновить" onAction="#reload" styleClass="btn-ghost"/>
+    </HBox>
+
+    <TableView fx:id="table" prefHeight="430">
+        <columns>
+            <TableColumn fx:id="colId" text="№" prefWidth="70"/>
+            <TableColumn fx:id="colTool" text="Инструмент" prefWidth="320"/>
+            <TableColumn fx:id="colDate" text="Дата" prefWidth="110"/>
+            <TableColumn fx:id="colDays" text="Сутки" prefWidth="80"/>
+            <TableColumn fx:id="colSum" text="Сумма" prefWidth="100"/>
+            <TableColumn fx:id="colStatus" text="Статус" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Подтвердить" onAction="#approve" styleClass="btn-primary"/>
+        <Button text="Выдать" onAction="#issue" styleClass="btn-primary"/>
+        <Button text="Возврат" onAction="#returned" styleClass="btn-primary"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label text="REQUESTED → APPROVED → ISSUED → RETURNED" styleClass="muted-small"/>
+    </HBox>
+</VBox>

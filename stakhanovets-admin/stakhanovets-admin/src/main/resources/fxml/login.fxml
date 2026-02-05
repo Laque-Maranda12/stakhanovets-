@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.stakhanovets.admin.controller.LoginController">
+    <children>
+        <VBox prefWidth="460" prefHeight="520" spacing="14" styleClass="page"
+              AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <padding><Insets top="26" right="26" bottom="26" left="26"/></padding>
+
+            <VBox spacing="6">
+                <Label text="Вход в систему" styleClass="h1"/>
+                <Label text="Административная панель ООО «Стахановец РФ»" styleClass="muted"/>
+            </VBox>
+
+            <Pane prefHeight="10"/>
+
+            <VBox spacing="8" styleClass="card">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+                <Label text="E-mail" styleClass="label"/>
+                <TextField fx:id="emailField" promptText="example@example.com"/>
+
+                <Label text="Пароль" styleClass="label"/>
+                <PasswordField fx:id="passwordField" promptText="••••••"/>
+
+                <HBox alignment="CENTER_RIGHT">
+                    <Hyperlink text="Забыли пароль?" disable="true"/>
+                </HBox>
+
+                <Button text="Войти" onAction="#onLogin" styleClass="btn-accent" maxWidth="Infinity"/>
+
+                <Label text="Подсказка: если сервер не запущен, включится DEMO режим." styleClass="muted-small"/>
+            </VBox>
+
+            <Pane VBox.vgrow="ALWAYS"/>
+            <Label text="JavaFX + REST API (JWT) + роли доступа" styleClass="muted-small"/>
+        </VBox>
+    </children>
+</AnchorPane>

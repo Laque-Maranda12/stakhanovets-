@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.stakhanovets.admin.controller.UsersController"
+      spacing="12" styleClass="card">
+    <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Пользователи" styleClass="h2"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Обновить" onAction="#reload" styleClass="btn-ghost"/>
+    </HBox>
+
+    <TableView fx:id="table" prefHeight="430">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="70"/>
+            <TableColumn fx:id="colName" text="ФИО" prefWidth="240"/>
+            <TableColumn fx:id="colEmail" text="E-mail" prefWidth="220"/>
+            <TableColumn fx:id="colRoles" text="Роли" prefWidth="180"/>
+            <TableColumn fx:id="colActive" text="Активен" prefWidth="90"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Заблокировать" onAction="#block" styleClass="btn-accent"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label text="Доступно только ADMIN" styleClass="muted-small"/>
+    </HBox>
+</VBox>

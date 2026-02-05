@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.stakhanovets.admin.controller.ToolsController"
+      spacing="12" styleClass="card">
+    <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Инструменты" styleClass="h2"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Обновить" onAction="#reload" styleClass="btn-ghost"/>
+    </HBox>
+
+    <TableView fx:id="table" prefHeight="430">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="70"/>
+            <TableColumn fx:id="colName" text="Название" prefWidth="360"/>
+            <TableColumn fx:id="colStatus" text="Статус" prefWidth="120"/>
+            <TableColumn fx:id="colPrice" text="Цена/сутки" prefWidth="110"/>
+            <TableColumn fx:id="colDeposit" text="Залог" prefWidth="100"/>
+            <TableColumn fx:id="colStock" text="Наличие" prefWidth="90"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Новый статус:" styleClass="label"/>
+        <ComboBox fx:id="statusBox" prefWidth="180"/>
+        <Button text="Применить" onAction="#updateStatus" styleClass="btn-accent"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label text="AVAILABLE / RENTED / IN_REPAIR / SOLD" styleClass="muted-small"/>
+    </HBox>
+</VBox>

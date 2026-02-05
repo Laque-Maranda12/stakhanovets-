@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.stakhanovets.admin.controller.RepairsController"
+      spacing="12" styleClass="card">
+    <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Ремонт" styleClass="h2"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Обновить" onAction="#reload" styleClass="btn-ghost"/>
+    </HBox>
+
+    <TableView fx:id="table" prefHeight="410">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="70"/>
+            <TableColumn fx:id="colTool" text="Инструмент" prefWidth="340"/>
+            <TableColumn fx:id="colDate" text="Дата" prefWidth="110"/>
+            <TableColumn fx:id="colCost" text="Стоимость" prefWidth="110"/>
+            <TableColumn fx:id="colStatus" text="Статус" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Статус:" styleClass="label"/>
+        <ComboBox fx:id="statusBox" prefWidth="180"/>
+        <Label text="Стоимость:" styleClass="label"/>
+        <TextField fx:id="costField" prefWidth="140" promptText="0"/>
+        <Button text="Применить" onAction="#apply" styleClass="btn-accent"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label text="CREATED → DIAGNOSIS → IN_WORK → READY → CLOSED" styleClass="muted-small"/>
+    </HBox>
+</VBox>

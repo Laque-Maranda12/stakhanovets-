@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.stakhanovets.admin.controller.MainController">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" styleClass="topbar">
+            <padding><Insets top="10" right="14" bottom="10" left="14"/></padding>
+            <Label text="Стахановец РФ — Админ-панель" styleClass="topbar-title"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <VBox spacing="2" alignment="CENTER_RIGHT">
+                <Label fx:id="userLabel" text="—" styleClass="topbar-user"/>
+                <Label fx:id="roleLabel" text="—" styleClass="topbar-role"/>
+            </VBox>
+            <Button text="Выйти" onAction="#onLogout" styleClass="btn-ghost"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" styleClass="sidebar">
+            <padding><Insets top="14" right="12" bottom="14" left="12"/></padding>
+            <Label text="Разделы" styleClass="sidebar-title"/>
+            <Button fx:id="btnTools" text="Инструменты" onAction="#openTools" styleClass="nav-btn"/>
+            <Button fx:id="btnRentals" text="Аренда" onAction="#openRentals" styleClass="nav-btn"/>
+            <Button fx:id="btnRepairs" text="Ремонт" onAction="#openRepairs" styleClass="nav-btn"/>
+            <Button fx:id="btnUsers" text="Пользователи" onAction="#openUsers" styleClass="nav-btn"/>
+            <Pane VBox.vgrow="ALWAYS"/>
+            <Label text="Доступ по ролям: MANAGER / MASTER / ADMIN" styleClass="muted-small"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="content" styleClass="content">
+            <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+        </StackPane>
+    </center>
+</BorderPane>
