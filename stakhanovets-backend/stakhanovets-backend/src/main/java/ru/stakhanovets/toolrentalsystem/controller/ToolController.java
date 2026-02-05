@@ -2,10 +2,9 @@ package ru.stakhanovets.toolrentalsystem.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.stakhanovets.toolrentalsystem.dto.CategoryDto;
+import ru.stakhanovets.toolrentalsystem.dto.StatusRequest;
 import ru.stakhanovets.toolrentalsystem.dto.ToolDto;
-import ru.stakhanovets.toolrentalsystem.model.Tool;
-import ru.stakhanovets.toolrentalsystem.repository.ToolRepository;
+import ru.stakhanovets.toolrentalsystem.service.ToolService;
 
 import java.util.List;
 
@@ -15,24 +14,20 @@ import java.util.List;
 @CrossOrigin
 public class ToolController {
 
-    private final ToolRepository toolRepository;
+    private final ToolService toolService;
 
     @GetMapping
     public List<ToolDto> getAllTools() {
-        return toolRepository.findAll()
-                .stream()
-                .map(this::toDto)
-                .toList();
+        return toolService.getAll();
     }
 
-    private ToolDto toDto(Tool tool) {
-        return new ToolDto(
-                tool.getId(),
-                tool.getName(),
-                tool.getSerialNumber(),
-                tool.getStatus().name(),
-                tool.getPurchasePrice(),
-                new CategoryDto(tool.getCategory().getId(), tool.getCategory().getName())
-        );
+    @GetMapping(params = "categoryId")
+    public List<ToolDto> getByCategory(@RequestParam Long categoryId) {
+        return toolService.getByCategory(categoryId);
+    }
+
+    @PutMapping("/{id}/status")
+    public void updateStatus(@PathVariable Long id, @RequestBody StatusRequest request) {
+        toolService.updateStatus(id, request.status());
     }
 }

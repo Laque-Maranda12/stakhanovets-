@@ -32,6 +32,21 @@ public class Tool {
     @Column(name = "purchase_price", nullable = false)
     private BigDecimal purchasePrice;
 
+    @Column(name = "price_per_day")
+    private Integer pricePerDay;
+
+    @Column
+    private Integer deposit;
+
+    @Column
+    private Integer stock = 1;
+
+    @Column(columnDefinition = "text")
+    private String description;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 }

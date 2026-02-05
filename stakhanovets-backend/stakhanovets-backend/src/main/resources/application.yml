@@ -10,3 +10,7 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
+
+jwt:
+  secret: stakhanovets-super-secret-key-for-jwt-authentication-2024-very-long
+  expiration: 86400000

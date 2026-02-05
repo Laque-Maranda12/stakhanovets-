@@ -3,4 +3,8 @@ package ru.stakhanovets.toolrentalsystem.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import ru.stakhanovets.toolrentalsystem.model.Tool;
 
-public interface ToolRepository extends JpaRepository<Tool, Long> {}
+import java.util.List;
+
+public interface ToolRepository extends JpaRepository<Tool, Long> {
+    List<Tool> findByCategoryId(Long categoryId);
+}

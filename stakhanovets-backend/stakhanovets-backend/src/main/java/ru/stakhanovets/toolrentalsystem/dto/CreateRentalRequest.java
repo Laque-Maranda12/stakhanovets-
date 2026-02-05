@@ -9,10 +9,7 @@ import java.util.List;
 
 @Data
 public class CreateRentalRequest {
-    @NotNull
     private Long clientId;
-
-    @NotNull
     private Long managerId;
 
     @NotNull
@@ -23,4 +20,9 @@ public class CreateRentalRequest {
 
     @NotEmpty
     private List<Long> toolIds;
+
+    private String clientName;
+    private String clientPhone;
+    private String clientEmail;
+    private String comment;
 }

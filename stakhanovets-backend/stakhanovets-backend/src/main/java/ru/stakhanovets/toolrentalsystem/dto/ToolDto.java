@@ -8,5 +8,10 @@ public record ToolDto(
         String serialNumber,
         String status,
         BigDecimal purchasePrice,
-        CategoryDto category
+        int pricePerDay,
+        int deposit,
+        int stock,
+        String description,
+        String imageUrl,
+        String categoryName
 ) {}
