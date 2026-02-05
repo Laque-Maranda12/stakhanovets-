@@ -2,7 +2,12 @@ package ru.stakhanovets.toolrentalsystem.model;
 
 public enum RentalStatus {
     CREATED,
+    APPROVED,
+    ISSUED,
     ACTIVE,
+    RETURNED,
     CLOSED,
-    CANCELED
+    OVERDUE,
+    CANCELED,
+    CANCELLED
 }

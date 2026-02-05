@@ -19,10 +19,10 @@ public class RentalOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "client_id", nullable = false)
+    @Column(name = "client_id")
     private Long clientId;
 
-    @Column(name = "manager_id", nullable = false)
+    @Column(name = "manager_id")
     private Long managerId;
 
     @Column(name = "tariff_id")
@@ -46,6 +46,9 @@ public class RentalOrder {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private RentalStatus status = RentalStatus.CREATED;
+
+    @Column(columnDefinition = "text")
+    private String comment;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
